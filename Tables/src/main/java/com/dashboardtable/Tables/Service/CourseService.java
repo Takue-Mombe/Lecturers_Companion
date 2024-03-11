@@ -34,8 +34,9 @@ import java.util.List;
         public void delete(int id){
              courseRepository.deleteById(id);
         }
-        public void search(int id){
+        public String search(int id){
             courseRepository.findById(id);
+            return null;
         }
 
 

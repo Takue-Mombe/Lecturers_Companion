@@ -56,17 +56,15 @@ public class CourseController {
     }
 
 
-        @GetMapping("/getCourses")
-        public List<Courses>getCourses(Courses courses){
-
-        return courseRepository.findAll();
+        @GetMapping("/getCourseById/{id}")
+        public String findbyId(Courses courses){
+        return courseService.search(courses.getId());
         }
+        @DeleteMapping("/deletebyId/{id}")
+        public String deleteUser(Courses course){
 
-
-    @DeleteMapping("delete/{id}")
-    public String deleteUser(Courses course){
-       courseRepository.deleteById(course.getId());
-        return "deleted...";
+        courseService.delete(course.getId());
+        return "Deleted";
     }
 
 }
