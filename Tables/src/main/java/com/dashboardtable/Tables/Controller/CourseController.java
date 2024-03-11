@@ -32,6 +32,19 @@ public class CourseController {
             courseService.saveCourse(courses);
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.TEXT_PLAIN);
+            double assessmentWeight = courses.getAssessmentWeight();
+
+            // Save the course
+            courseService.saveCourse(courses);
+
+            // Calculate cumulative total (you might want to retrieve the existing total from the database)
+            double currentTotal = courseService.calculateCumulativeTotal();
+
+            // Update the cumulative total based on the new assessment
+            currentTotal += (assessmentWeight / 100);
+
+            // Update the cumulative total in the database (you might want to have a method for this in the service)
+            courseService.updateCumulativeTotal(currentTotal);
             return new ResponseEntity<>("Save was a success", headers, HttpStatus.OK);
         } catch (Exception e) {
             // Log the exception or print the stack trace
