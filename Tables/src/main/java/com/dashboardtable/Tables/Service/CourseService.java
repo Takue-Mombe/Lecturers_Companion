@@ -30,14 +30,14 @@ import java.util.List;
             return cumulativeTotal;
         }
 
-        // You may need to update this method based on your actual entity structure
-        public void updateCumulativeTotal(double newTotal) {
-            // Perform any logic needed to update the cumulative total in the database
-            // This could involve updating a specific record or storing the total in a separate entity
-            // Make sure to handle this according to your application's data structure
+        public void updateCumulativeTotal(double newTotal) {        }
+        public void delete(int id){
+             courseRepository.deleteById(id);
+        }
+        public void search(int id){
+            courseRepository.findById(id);
         }
 
-        // Other methods related to your business logic
 
 
 
