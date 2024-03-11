@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api")
 public class CourseController {
 
-    @PostMapping("/hello")
+    @PostMapping("/save-course")
     public String greetings(){
         return "Hello User";
     }
