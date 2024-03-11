@@ -1,23 +1,26 @@
 package com.dashboardtable.Tables.Models;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-@Entity(name="Courses")
+@Entity(name = "coursedetails")
 public class Courses {
 
 
     @Id
-    @Column
-    private String courseId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
     @Column
     private String courseName;
     @Column
     private AssessmentType assessmentType;
     @Column
     private double assessmentWeight;
+    @Column
+    private String courseId;
+
 
 
     public String getCourseId() {
@@ -26,6 +29,14 @@ public class Courses {
 
     public void setCourseId(String courseId) {
         this.courseId = courseId;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCourseName() {
